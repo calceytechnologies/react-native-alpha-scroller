@@ -17,9 +17,9 @@ import {
 import AlphabetList from '../AlphabetList';
 import {IAlphaScrollItemData} from '../IAlphaScrollItemData';
 
-import countryList from '../../../assets/data/countries-section.json';
 import styles from './AlphaScrollList.styles';
 import colors from '../../styles/colors';
+import SectionItem from '../SectionItem/SectionItem';
 
 export interface IAlphaScrollItemProps<ItemT> {
   item: ItemT;
@@ -49,8 +49,8 @@ export interface IProps<ItemT extends IAlphaScrollItemData> {
   sectionHeaderHeight: number;
   searchBoxHeight: number;
   alphaScrollerVerticalPadding: number;
-  renderItem: ListRenderItem<ItemT>;
   renderSectionHeader: ListRenderSectionHeader;
+  countryCode: string;
   onSelect: (item: IAlphaScrollItemData) => void;
   onClose: () => void;
 }
@@ -106,16 +106,6 @@ export default class AlphaScrollList<
 
   componentDidMount() {
     this.initData(this.props.data);
-    let myList = {};
-
-    countryList.map(section => {
-      myList = {
-        ...myList,
-        [section.title]: section.data,
-      };
-    });
-
-    console.log('myList', myList);
   }
 
   /**
@@ -244,15 +234,18 @@ export default class AlphaScrollList<
         {this.state.data[info.item].map((itemValue, itemIndex, items) => {
           return (
             <TouchableOpacity
-              key={itemValue.id}
+              key={itemValue.cca2}
               onPress={() => this.onSelect(itemValue)}>
               <View style={{height: this.props.itemHeight}}>
-                {this.props.renderItem({
-                  item: itemValue,
-                  index: itemIndex,
-                  last: itemIndex === items.length - 1,
-                  height: this.props.itemHeight,
-                })}
+                <SectionItem
+                  item={itemValue}
+                  index={itemIndex}
+                  last={itemIndex === items.length - 1}
+                  height={this.props.itemHeight}
+                  onSelect={this.props.onSelect}
+                  itemSection={this.state.data[info.item]}
+                  countryCode={this.props.countryCode}
+                />
               </View>
             </TouchableOpacity>
           );

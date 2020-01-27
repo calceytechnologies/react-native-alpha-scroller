@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import colors from '../styles/colors';
 
 interface IProps {
   title: string;
@@ -17,7 +18,9 @@ const AlphabetListItem: FC<IProps> = function(props) {
           height: props.height,
           width: props.height,
           borderRadius: props.height / 2,
-          backgroundColor: props.active ? '#0ea8ff' : 'transparent',
+          backgroundColor: props.active
+            ? colors.backgrounds.primaryGreen
+            : 'transparent',
         },
       ]}>
       <Text

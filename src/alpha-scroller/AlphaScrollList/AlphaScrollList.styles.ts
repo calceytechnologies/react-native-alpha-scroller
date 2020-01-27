@@ -1,10 +1,7 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
+import {convertToThreeXSize} from '../../styles/metrics';
 import colors from '../../styles/colors';
-
-const convertToThreeXSize = (value: number): number => {
-  return value / 3;
-};
 
 export const viewPortWidth = Dimensions.get('window').height;
 
