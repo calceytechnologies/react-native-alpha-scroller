@@ -9,13 +9,17 @@ import {
   LayoutChangeEvent,
   ListRenderItemInfo,
   View,
-  StyleSheet,
   TextInput,
   TouchableOpacity,
   Text,
+  Image,
 } from 'react-native';
-import AlphabetList from './AlphabetList';
-import {IAlphaScrollItemData} from './IAlphaScrollItemData';
+import AlphabetList from '../AlphabetList';
+import {IAlphaScrollItemData} from '../IAlphaScrollItemData';
+
+import countryList from '../../../assets/data/countries-section.json';
+import styles from './AlphaScrollList.styles';
+import colors from '../../styles/colors';
 
 export interface IAlphaScrollItemProps<ItemT> {
   item: ItemT;
@@ -48,6 +52,7 @@ export interface IProps<ItemT extends IAlphaScrollItemData> {
   renderItem: ListRenderItem<ItemT>;
   renderSectionHeader: ListRenderSectionHeader;
   onSelect: (item: IAlphaScrollItemData) => void;
+  onClose: () => void;
 }
 
 export interface IState<ItemT extends IAlphaScrollItemData> {
@@ -101,6 +106,16 @@ export default class AlphaScrollList<
 
   componentDidMount() {
     this.initData(this.props.data);
+    let myList = {};
+
+    countryList.map(section => {
+      myList = {
+        ...myList,
+        [section.title]: section.data,
+      };
+    });
+
+    console.log('myList', myList);
   }
 
   /**
@@ -248,11 +263,37 @@ export default class AlphaScrollList<
 
   renderSearchBox() {
     return (
-      <View style={[styles.header, {height: this.props.searchBoxHeight}]}>
-        <TextInput
-          placeholder="Search"
-          style={styles.search}
-          onChangeText={this.onSearch}></TextInput>
+      <View style={styles.headerContainer}>
+        <View style={styles.innerContainer}>
+          <TouchableOpacity
+            hitSlop={styles.hitSlop}
+            onPress={this.props.onClose}
+            style={styles.closeIconWrapper}>
+            <Image
+              style={styles.closeIcon}
+              source={require('../../../assets/images/close.png')}
+            />
+          </TouchableOpacity>
+          <Text style={styles.title}>Select country</Text>
+        </View>
+        <View style={styles.inputWrapper}>
+          <Image
+            source={require('../../../assets/images/search.png')}
+            style={styles.searchIcon}
+            resizeMode="contain"
+          />
+          <TextInput
+            hitSlop={styles.hitSlop}
+            testID="text-input-country-filter"
+            autoCorrect={false}
+            autoFocus={false}
+            placeholderTextColor={colors.font.veryLightGray}
+            placeholder="Search for a country"
+            style={styles.input}
+            onChangeText={this.onSearch}
+            {...this.props}
+          />
+        </View>
       </View>
     );
   }
@@ -322,22 +363,3 @@ export default class AlphaScrollList<
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    justifyContent: 'center',
-    padding: 2,
-  },
-  scrollContainer: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  list: {},
-  search: {
-    borderColor: 'gray',
-    borderWidth: 1,
-  },
-});

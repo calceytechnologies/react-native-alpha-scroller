@@ -2,7 +2,7 @@ import * as React from 'react';
 import {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {IAlphaScrollItemData} from './IAlphaScrollItemData';
-import {IAlphaScrollItemProps} from './AlphaScrollList';
+import {IAlphaScrollItemProps} from './AlphaScrollList/AlphaScrollList';
 
 const SectionItem: FC<IAlphaScrollItemProps<IAlphaScrollItemData>> = function(
   props,

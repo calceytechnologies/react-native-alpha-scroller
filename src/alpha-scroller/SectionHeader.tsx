@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {FC} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import {IAlphaScrollSectionHeaderProps} from './AlphaScrollList';
+import {IAlphaScrollSectionHeaderProps} from './AlphaScrollList/AlphaScrollList';
 
 const SectionHeader: FC<IAlphaScrollSectionHeaderProps> = function(props) {
   return (

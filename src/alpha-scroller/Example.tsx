@@ -1,6 +1,6 @@
 import React from 'react';
 import {IAlphaScrollItemData} from './IAlphaScrollItemData';
-import AlphaScrollList from './AlphaScrollList';
+import AlphaScrollList from './AlphaScrollList/AlphaScrollList';
 import SectionItem from './SectionItem';
 import SectionHeader from './SectionHeader';
 
@@ -60,7 +60,8 @@ export class Example extends React.Component {
         alphaScrollerVerticalPadding={AlphaScrollerVerticalPadding}
         renderItem={SectionItem}
         renderSectionHeader={SectionHeader}
-        onSelect={this.onSelect}></AlphaScrollList>
+        onSelect={this.onSelect}
+      />
     );
   }
 }
