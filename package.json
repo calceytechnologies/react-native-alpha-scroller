@@ -1,6 +1,7 @@
 {
   "name": "react-native-alpha-scroller",
   "version": "0.1.0",
+  "description": "A React Native library that provides an alphabetic scroll list with a generic list.",
   "private": true,
   "main": "src/index.ts",
   "scripts": {
