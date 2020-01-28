@@ -2,8 +2,10 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 import {convertToThreeXSize} from '../../styles/metrics';
 import colors from '../../styles/colors';
+import {FontFamilySemiBold, FontFamilyRegular} from '../../styles/fonts';
 
-export const viewPortWidth = Dimensions.get('window').height;
+export const viewPortWidth = Dimensions.get('window').width;
+export const viewportHeight = Dimensions.get('window').height;
 
 const style = StyleSheet.create({
   container: {
@@ -50,7 +52,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    // ...FontFamilySemiBold,
+    ...FontFamilySemiBold,
     fontSize: convertToThreeXSize(56),
     color: colors.white,
   },
@@ -74,7 +76,14 @@ const style = StyleSheet.create({
     borderTopLeftRadius: convertToThreeXSize(20),
     backgroundColor: colors.backgrounds.primaryGreen,
     paddingTop: convertToThreeXSize(97),
-    // marginTop: viewPortWidth / 16,
+    marginTop: viewPortWidth / 16,
+  },
+  emptyResultText: {
+    ...FontFamilyRegular,
+    // backgroundColor: 'red',
+    textAlign: 'center',
+    fontSize: convertToThreeXSize(42),
+    marginTop: viewportHeight / 4,
   },
 });
 

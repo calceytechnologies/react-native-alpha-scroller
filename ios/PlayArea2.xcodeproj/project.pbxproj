@@ -20,6 +20,8 @@
 		806ADD126121C03A9ED5B605 /* libPods-PlayArea2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2323629F840BAD7024D13C31 /* libPods-PlayArea2Tests.a */; };
 		97BAE0C2F8865C832E346FF2 /* libPods-PlayArea2-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC64CBCB5AD251F4F1D86C6 /* libPods-PlayArea2-tvOS.a */; };
 		B117B5E9AD0B93728B1F44B4 /* libPods-PlayArea2-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C63A811C7C96D20129A986 /* libPods-PlayArea2-tvOSTests.a */; };
+		83E4496DBB95478DBDFEF57F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CE3F94F553C40C182B5C928 /* OpenSans-Regular.ttf */; };
+		64546B1A574E41C796D6C8BC /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED48721893A94E7799DF3308 /* OpenSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		E75652C21ECE778D8F0CA4FB /* libPods-PlayArea2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayArea2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		9CE3F94F553C40C182B5C928 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ED48721893A94E7799DF3308 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				26B74F111691D7E66F4CEEF9 /* Pods */,
+				8BEC8B65F1944400AE25175C /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -196,6 +201,16 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		8BEC8B65F1944400AE25175C /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				9CE3F94F553C40C182B5C928 /* OpenSans-Regular.ttf */,
+				ED48721893A94E7799DF3308 /* OpenSans-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -284,7 +299,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -341,6 +356,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				83E4496DBB95478DBDFEF57F /* OpenSans-Regular.ttf in Resources */,
+				64546B1A574E41C796D6C8BC /* OpenSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

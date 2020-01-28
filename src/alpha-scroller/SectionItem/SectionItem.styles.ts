@@ -2,6 +2,7 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 import {convertToThreeXSize} from '../../styles/metrics';
 import colors from '../../styles/colors';
+import {FontFamilySemiBold} from '../../styles/fonts';
 
 const styles = StyleSheet.create({
   container: {
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   },
   countryName: {
     paddingLeft: convertToThreeXSize(49),
-    // ...FontFamilySemiBold,
+    ...FontFamilySemiBold,
     fontSize: convertToThreeXSize(44),
     color: colors.font.darkText,
     textAlignVertical: 'center',
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   currentLocationTitle: {
     paddingLeft: convertToThreeXSize(63),
     paddingBottom: convertToThreeXSize(40),
-    // ...FontFamilySemiBold,
+    ...FontFamilySemiBold,
     fontSize: convertToThreeXSize(44),
     color: colors.font.darkText,
   },
@@ -109,8 +110,8 @@ const styles = StyleSheet.create({
   sectionHeaderText: {
     marginTop: convertToThreeXSize(60),
     marginLeft: convertToThreeXSize(60),
-    marginBottom: '40rem',
-    // ...FontFamilySemiBold,
+    marginBottom: convertToThreeXSize(40),
+    ...FontFamilySemiBold,
     fontSize: convertToThreeXSize(44),
     color: colors.font.darkText,
   },

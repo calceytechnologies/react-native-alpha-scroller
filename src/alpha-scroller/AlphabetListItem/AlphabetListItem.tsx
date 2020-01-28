@@ -1,7 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 import {FC} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import colors from '../styles/colors';
+import {View, Text} from 'react-native';
+
+import styles from './AlphabetListItem.styles';
+import colors from '../../styles/colors';
 
 interface IProps {
   title: string;
@@ -35,17 +38,5 @@ const AlphabetListItem: FC<IProps> = function(props) {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 12,
-    textAlign: 'center',
-    fontFamily: 'PingFangSC-Regular',
-  },
-});
 
 export default AlphabetListItem;

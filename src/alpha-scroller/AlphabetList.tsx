@@ -8,7 +8,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import AlphabetListItem from './AlphabetListItem';
+import AlphabetListItem from './AlphabetListItem/AlphabetListItem';
 
 interface IProps {
   contentHeight: number;
