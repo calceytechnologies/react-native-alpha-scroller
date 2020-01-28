@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A React Native library that provides an alphabetic scroll list with a generic list.",
   "private": true,
+  "main": "src/index.ts",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
