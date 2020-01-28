@@ -26,6 +26,7 @@ export class Example extends React.Component {
         renderSectionHeader={SectionHeader}
         onSelect={this.onSelect}
         countryCode="US"
+        currentLocation="US"
         onClose={() => {}}
       />
     );

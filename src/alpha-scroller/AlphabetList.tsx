@@ -76,7 +76,7 @@ class AlphabetList extends PureComponent<IProps, IState> {
 
   onTouchChange = (
     e: GestureResponderEvent,
-    gestureState: PanResponderGestureState,
+    _gestureState: PanResponderGestureState,
   ) => {
     const event: any = e.nativeEvent || {};
     const index = Math.floor(

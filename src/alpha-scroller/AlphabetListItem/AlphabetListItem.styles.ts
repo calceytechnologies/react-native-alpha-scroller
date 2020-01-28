@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {FontFamilyRegular} from '../../styles/fonts';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     textAlign: 'center',
-    fontFamily: 'PingFangSC-Regular',
+    ...FontFamilyRegular,
   },
 });
 

@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   Text,
   Image,
+  Keyboard,
 } from 'react-native';
 import AlphabetList from '../AlphabetList';
 import {IAlphaScrollItemData} from '../IAlphaScrollItemData';
@@ -20,6 +21,7 @@ import {IAlphaScrollItemData} from '../IAlphaScrollItemData';
 import styles from './AlphaScrollList.styles';
 import colors from '../../styles/colors';
 import SectionItem from '../SectionItem/SectionItem';
+import CurrentLocation from '../CurrentLocation/CurrentLocation';
 
 export interface IAlphaScrollItemProps<ItemT> {
   item: ItemT;
@@ -51,6 +53,7 @@ export interface IProps<ItemT extends IAlphaScrollItemData> {
   alphaScrollerVerticalPadding: number;
   renderSectionHeader: ListRenderSectionHeader;
   countryCode: string;
+  currentLocation: string;
   onSelect: (item: IAlphaScrollItemData) => void;
   onClose: () => void;
 }
@@ -88,6 +91,9 @@ export default class AlphaScrollList<
   container?: View;
   list?: FlatList<ItemT>;
   alphabetList?: AlphabetList;
+
+  keyboardDidShowListener: any;
+  keyboardDidHideListener: any;
 
   constructor(props: IProps<ItemT>, context: any) {
     super(props, context);
@@ -233,21 +239,17 @@ export default class AlphaScrollList<
 
         {this.state.data[info.item].map((itemValue, itemIndex, items) => {
           return (
-            <TouchableOpacity
-              key={itemValue.cca2}
-              onPress={() => this.onSelect(itemValue)}>
-              <View style={{height: this.props.itemHeight}}>
-                <SectionItem
-                  item={itemValue}
-                  index={itemIndex}
-                  last={itemIndex === items.length - 1}
-                  height={this.props.itemHeight}
-                  onSelect={this.props.onSelect}
-                  itemSection={this.state.data[info.item]}
-                  countryCode={this.props.countryCode}
-                />
-              </View>
-            </TouchableOpacity>
+            <View style={{height: this.props.itemHeight}}>
+              <SectionItem
+                item={itemValue}
+                index={itemIndex}
+                last={itemIndex === items.length - 1}
+                height={this.props.itemHeight}
+                onSelect={this.props.onSelect}
+                itemSection={this.state.data[info.item]}
+                countryCode={this.props.countryCode}
+              />
+            </View>
           );
         })}
       </View>
@@ -308,10 +310,28 @@ export default class AlphaScrollList<
   renderNoSearchResults() {
     return (
       <View>
-        <Text>No search results</Text>
+        <Text style={styles.emptyResultText}>
+          The country you searched is not available
+        </Text>
       </View>
     );
   }
+
+  renderCurrentLocation = (): JSX.Element | null => {
+    let content = null;
+
+    if (CurrentLocation) {
+      content = (
+        <CurrentLocation
+          countryCode={this.props.countryCode}
+          currentLocation={this.props.currentLocation}
+          onSelect={this.props.onSelect}
+        />
+      );
+    }
+
+    return content;
+  };
 
   renderList() {
     return (
@@ -326,6 +346,7 @@ export default class AlphaScrollList<
         keyExtractor={(item, index) => `${index}`}
         getItemLayout={this.getItemLayout}
         initialNumToRender={this.state.initialNumToRender}
+        ListHeaderComponent={this.renderCurrentLocation}
       />
     );
   }
